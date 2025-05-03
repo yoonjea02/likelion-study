@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>MS Movies - 박스오피스 조회</title>
+  <link rel="stylesheet" href="9-3.css">
+</head>
+<body>
+  <header>
+    <h1>MS <span>Movies</span></h1>
+    <nav>
+      <a href="#">영화차트리스트</a>
+      <a href="#">국내영화</a>
+      <a href="#">외국영화</a>
+      <a href="#">전국영화관</a>
+      <a href="#">최근기사</a>
+      <a href="#">블로그</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>멋쟁이사자처럼<br>일별박스오피스 조회 사이트</h2>
+  </section>
+
+  <section class="boxoffice">
+    <h3>일별박스오피스 조회</h3>
+    <div class="search">
+      <input type="date" id="dateInput" value="2024-03-08">
+      <button onclick="filterTable()">🎬 영화조회</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>순위</th>
+          <th>영화명</th>
+          <th>누적관객수</th>
+          <th>개봉일</th>
+        </tr>
+      </thead>
+      <tbody id="movieTable">
+        <!-- JavaScript로 데이터 삽입 -->
+      </tbody>
+    </table>
+  </section>
+
+  <script src="9-3.js"></script>
+</body>
+</html>

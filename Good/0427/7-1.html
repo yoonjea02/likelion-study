@@ -1,0 +1,94 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*" %>
+<%
+    request.setCharacterEncoding("UTF-8");
+
+    // 등록 처리
+    if ("POST".equalsIgnoreCase(request.getMethod())) {
+        String name = request.getParameter("name");
+        String age = request.getParameter("age");
+        String address = request.getParameter("address");
+
+        List<Map<String, String>> members = (List<Map<String, String>>) application.getAttribute("members");
+        if (members == null) {
+            members = new ArrayList<>();
+        }
+
+        Map<String, String> member = new HashMap<>();
+        member.put("name", name);
+        member.put("age", age);
+        member.put("address", address);
+        members.add(member);
+
+        application.setAttribute("members", members);
+        
+        // 등록 후 새로고침 방지용 리다이렉트
+        response.sendRedirect("memberForm.jsp");
+        return;
+    }
+
+    // 출력용 데이터
+    List<Map<String, String>> members = (List<Map<String, String>>) application.getAttribute("members");
+    if (members == null) {
+        members = new ArrayList<>();
+    }
+%>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원등록 테이블</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="memberScript.js"></script> <!-- 외부 js 파일 연결 -->
+    <style>
+        table { width: 700px; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        th { background-color: #f9f9f9; }
+        input { margin-right: 5px; }
+    </style>
+</head>
+<body>
+
+<h3>회원등록 테이블</h3>
+
+<form id="registerForm" method="post">
+    <input type="text" name="name" id="name" placeholder="이름" required>
+    <input type="number" name="age" id="age" placeholder="나이" required>
+    <input type="text" name="address" id="address" placeholder="주소" required>
+    <button type="submit">등록하기</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>순번</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>주소</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%
+            int idx = 1;
+            for (Map<String, String> member : members) {
+        %>
+        <tr>
+            <td><%= idx++ %></td>
+            <td><%= member.get("name") %></td>
+            <td><%= member.get("age") %></td>
+            <td><%= member.get("address") %></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<br>
+
+<h4>제이쿼리 가지고 놀기</h4>
+<input type="text" id="inputText" placeholder="입력하세요">
+<button type="button" id="doButton">Do! 버튼</button>
+결과 : <span id="result"></span>
+
+</body>
+</html>

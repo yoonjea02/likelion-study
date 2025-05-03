@@ -15,7 +15,7 @@
 
 body{
     font-family:basic;
-    fonrt-size:20px;
+    font-size:20px;
     margin:0;
 }
 
@@ -31,6 +31,7 @@ header{
 header .logo{
     height:40%;
     margin-bottom:4px;
+}
     
 
 header > .inner{
@@ -44,8 +45,8 @@ header > .inner{
 
 header .menu-item{
     color:#999;
-    margin-left:24px
-    font-weight 700px;
+    margin-left:24px;
+    font-weight:700px;
     cursor: pointer;
 }
 
@@ -100,7 +101,7 @@ section > .inner{
 
 button,my-btn{
     padding: 3px 14px;
-    background: #222
+    background: #222;
     color:#fff;
     font-weight: 700;
     border-radius: 6px;
@@ -112,3 +113,4 @@ button,my-btn{
 
 button,my-btn{
     background: var(--main-color);
+}
