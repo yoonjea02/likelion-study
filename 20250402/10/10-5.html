@@ -1,0 +1,13 @@
+package com.my.likelion_backend;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class LikelionBackendApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}

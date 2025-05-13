@@ -1,0 +1,63 @@
+package com.my.likelion_backend. controller;
+
+import org.springframework.stereotype.Controller;
+
+@controller
+public class HomeController {
+
+
+    @GetMapping("/detail-user")
+    public String detailUser(
+         @RequestParam(value="uid") String id
+         Model model
+    ) {
+
+        //DB 에서 받아올 데이터
+        String name="김철수"
+        String nickname="코딩1234";
+
+        model,addAttribute("name", name);
+        model,addAttribute("nick", nick);
+
+        return "detail-user";
+    }
+
+
+
+
+
+    @GetMapping("/getUser/{id}/{pw}")
+    @ResponeBody 
+    public String addUser(0
+                @pathVariable("a") int userIdx
+            ) {
+
+        return "ok";
+    }
+
+    @GetMapping("savveUser")
+    @ResponeBody
+    public String saveUser(
+            @RequestParam(value="uid") String id
+            @RequestParam(value="upw") String pw
+        )   {
+
+        
+ 
+        //회원가입로직...
+
+        System.out.printIn(id);
+        System.out.printIn(pw);
+
+        return "ok";
+    }
+
+
+
+    @GetMapping("/")
+    public String home() {
+
+        return "home";
+    }
+
+}

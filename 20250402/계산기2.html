@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>간단 계산기</title>
+  <script>
+    // 숫자 입력
+    let num1 = prompt("첫 번째 숫자를 입력하세요");
+    let num2 = prompt("두 번째 숫자를 입력하세요");
+
+    // 문자열을 숫자로 변환
+    num1 = Number(num1);
+    num2 = Number(num2);
+
+    // 연산자 입력
+    let operator = prompt("어떤 연산을 하시겠어요? (+, -, *, / 중에 입력)");
+
+    // 결과 계산
+    let result = 0;
+
+    if (operator == "+") {
+      result = num1 + num2;
+    } else if (operator == "-") {
+      result = num1 - num2;
+    } else if (operator == "*") {
+      result = num1 * num2;
+    } else if (operator == "/") {
+      result = num1 / num2;
+    }
+
+    // 결과 출력
+    alert("결과는 " + result + " 입니다!");
+  </script>
+</head>
+<body>
+</body>
+</html>
